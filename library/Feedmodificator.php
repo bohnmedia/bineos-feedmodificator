@@ -28,7 +28,7 @@ class Feedmodificator {
 		// Verwende den Dateinamen aus der Config
 		if (!is_dir(__DIR__ . '/../xml')) mkdir(__DIR__ . '/../xml');
 		$filename = __DIR__ . '/../xml/' . $target['filename'];
-		if (file_put_contents($filename, $xmlstring)) {
+		if (file_put_contents($filename, iconv("UTF-8", "UTF-8//IGNORE", $xmlstring))) {
 			Log::info("Der modifizierte Feed wurde in die Datei '" . realpath($filename) . "' geschrieben");
 		}
 
